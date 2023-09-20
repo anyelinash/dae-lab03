@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Proveedor</title>
+</head>
+<body>
+    <h1>Registrar Nuevo Proveedor</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" name="codigo" required><br><br>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="direccion">Dirección:</label>
+        <textarea id="direccion" name="direccion" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="text" id="telefono" name="telefono" required><br><br>
+
+        <label for="pagina_web">Página Web:</label>
+        <input type="url" id="pagina_web" name="pagina_web" required><br><br>
+
+        <input type="submit" value="Guardar">
+    </form>
+    <p><a href="{% url 'index' %}">Volver al Inicio</a></p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Producto Vendido</title>
+</head>
+<body>
+    <h1>Registrar Producto Vendido</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="producto">Producto:</label>
+        <select id="producto" name="producto" required>
+            {% for producto in productos %}
+                <option value="{{ producto.id }}">{{ producto.nombre }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="precio_venta">Precio de Venta:</label>
+        <input type="number" id="precio_venta" name="precio_venta" step="0.01" required><br><br>
+
+        <label for="cantidad_vendida">Cantidad Vendida:</label>
+        <input type="number" id="cantidad_vendida" name="cantidad_vendida" required><br><br>
+
+        <input type="submit" value="Guardar">
+    </form>
+    <p><a href="{% url 'index' %}">Volver al Inicio</a></p>
+</body>
+</html>

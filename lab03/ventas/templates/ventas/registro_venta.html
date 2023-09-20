@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Venta</title>
+</head>
+<body>
+    <h1>Registrar Nueva Venta</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="numero_factura">Número de Factura:</label>
+        <input type="text" id="numero_factura" name="numero_factura" required><br><br>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required><br><br>
+
+        <label for="cliente">Cliente:</label>
+        <select id="cliente" name="cliente" required>
+            {% for cliente in clientes %}
+                <option value="{{ cliente.id }}">{{ cliente.nombre }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="descuento">Descuento:</label>
+        <input type="number" id="descuento" name="descuento" step="0.01" required><br><br>
+
+        <label for="productos_vendidos">Productos Vendidos:</label>
+        <select id="productos_vendidos" name="productos_vendidos" multiple required>
+            {% for producto in productos %}
+                <option value="{{ producto.id }}">{{ producto.nombre }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="submit" value="Guardar">
+    </form>
+    <p><a href="{% url 'index' %}">Volver al Inicio</a></p>
+</body>
+</html>

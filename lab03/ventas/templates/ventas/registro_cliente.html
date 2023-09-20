@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registro de Cliente</title>
+</head>
+<body>
+    <h1>Registrar Nuevo Cliente</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigo" name="codigo" required><br><br>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="direccion_calle">Calle:</label>
+        <input type="text" id="direccion_calle" name="direccion_calle" required><br><br>
+
+        <label for="direccion_numero">Número:</label>
+        <input type="text" id="direccion_numero" name="direccion_numero" required><br><br>
+
+        <label for="direccion_comuna">Comuna:</label>
+        <input type="text" id="direccion_comuna" name="direccion_comuna" required><br><br>
+
+        <label for="direccion_ciudad">Ciudad:</label>
+        <input type="text" id="direccion_ciudad" name="direccion_ciudad" required><br><br>
+
+        <input type="submit" value="Guardar">
+    </form>
+    <p><a href="{% url 'index' %}">Volver al Inicio</a></p>
+</body>
+</html>

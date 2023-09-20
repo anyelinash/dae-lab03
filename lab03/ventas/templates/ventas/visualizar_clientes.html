@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visualizar Clientes</title>
+</head>
+<body>
+    <h1>Visualizar Clientes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Dirección</th>
+                <th>Teléfonos de Contacto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in clientes %}
+                <tr>
+                    <td>{{ cliente.codigo }}</td>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.direccion_calle }} {{ cliente.direccion_numero }}, {{ cliente.direccion_comuna }}, {{ cliente.direccion_ciudad }}</td>
+                    <td>
+                        <!-- Agrega los números de teléfono de contacto aquí si corresponde -->
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{% url 'index' %}">Volver al Inicio</a></p>
+</body>
+</html>

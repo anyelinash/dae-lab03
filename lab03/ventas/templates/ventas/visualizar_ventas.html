@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visualizar Ventas</title>
+</head>
+<body>
+    <h1>Lista de Ventas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Número de Factura</th>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Descuento</th>
+                <th>Monto Final</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for venta in ventas %}
+            <tr>
+                <td>{{ venta.numero_factura }}</td>
+                <td>{{ venta.fecha }}</td>
+                <td>{{ venta.cliente.nombre }}</td>
+                <td>{{ venta.descuento }}</td>
+                <td>{{ venta.monto_final }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{% url 'index' %}">Volver al Inicio</a></p>
+</body>
+</html>
